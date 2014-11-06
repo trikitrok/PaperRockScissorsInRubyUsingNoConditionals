@@ -17,6 +17,10 @@ class Paper
     scissors.play_against_paper(self)
   end
 
+  def play_against_rock(rock)
+    rock.play_against_paper(self)
+  end
+
   def to_s
     "Paper"
   end 
