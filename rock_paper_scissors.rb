@@ -53,6 +53,10 @@ class Scissors
     Victory.new(self, paper)
   end
 
+  def play_against_scissors(scissors)
+    "Two Scissors, no one wins"
+  end
+
   def to_s
     "Scissors"
   end 
