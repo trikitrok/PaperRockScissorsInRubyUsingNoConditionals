@@ -25,11 +25,6 @@ class TestRockPaperScissors < Test::Unit::TestCase
     assert_equal(result.to_s, "Scissors wins to Paper")
   end
 
-  def test_rock_against_rock
-    result = @game.hand(@rock, @rock)
-    assert_equal(result.to_s, "Two Rocks, no one wins")
-  end
-
   def test_scissors_against_paper
     result = @game.hand(@scissors, @paper)
     assert_equal(result.to_s, "Scissors wins to Paper")
@@ -48,5 +43,10 @@ class TestRockPaperScissors < Test::Unit::TestCase
   def test_rock_against_paper
     result = @game.hand(@rock, @paper)
     assert_equal(result.to_s, "Paper wins to Rock")
+  end
+
+  def test_rock_against_rock
+    result = @game.hand(@rock, @rock)
+    assert_equal(result.to_s, "Two Rocks, no one wins")
   end
 end
