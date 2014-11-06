@@ -49,4 +49,9 @@ class TestRockPaperScissors < Test::Unit::TestCase
     result = @game.hand(@rock, @rock)
     assert_equal(result.to_s, "Two Rocks, no one wins")
   end
+
+  def test_rock_against_scissors
+    result = @game.hand(@rock, @scissors)
+    assert_equal(result.to_s, "Rock wins to Scissors")
+  end
 end

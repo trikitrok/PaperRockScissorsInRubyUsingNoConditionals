@@ -69,6 +69,10 @@ class Scissors
     Tie.new(scissors)
   end
 
+  def play_against_rock(rock)
+    rock.play_against_scissors(self)
+  end
+
   def to_s
     "Scissors"
   end 
