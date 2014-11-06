@@ -20,6 +20,10 @@ class Paper
   def to_s
     "Paper"
   end 
+
+  def to_plural_s
+    to_s + "s"
+  end
 end
 
 class Rock
@@ -42,6 +46,10 @@ class Rock
   def to_s
     "Rock"
   end 
+
+  def to_plural_s
+    to_s + "s"
+  end
 end
 
 class Scissors
@@ -54,12 +62,16 @@ class Scissors
   end
 
   def play_against_scissors(scissors)
-    "Two Scissors, no one wins"
+    Tie.new(scissors)
   end
 
   def to_s
     "Scissors"
   end 
+
+  def to_plural_s
+    to_s
+  end
 end
 
 class Victory
@@ -80,6 +92,6 @@ class Tie
   end
 
   def to_s
-    "Two " + @gesture.to_s + "s, no one wins"
+    "Two " + @gesture.to_plural_s + ", no one wins"
   end
 end
