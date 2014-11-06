@@ -14,7 +14,7 @@ class Paper
   end
 
   def play_against_scissors(scissors)
-    Victory.new(scissors, self)
+    scissors.play_against_paper(self)
   end
 
   def to_s
