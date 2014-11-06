@@ -1,12 +1,14 @@
 class Game
   def hand(gesture1, gesture2)
-
-    gesture2.play_against_paper(gesture1) 
-    
+    gesture1.play_against(gesture2)
   end
 end
 
 class Paper
+  def play_against(other)
+    other.play_against_paper(self) 
+  end
+
   def play_against_paper(paper)
     "Two Papers, no one wins"
   end
@@ -17,8 +19,16 @@ class Paper
 end
 
 class Rock
+  def play_against(other)
+    other.play_against_rock(self) 
+  end
+
   def play_against_paper(paper)
     Victory.new(paper, self)
+  end
+
+  def play_against_rock(rock)
+    "Two Rocks, no one wins"
   end
 
   def to_s
