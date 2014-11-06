@@ -10,7 +10,7 @@ class Paper
   end
 
   def play_against_paper(paper)
-    "Two Papers, no one wins"
+    Tie.new(paper)
   end
 
   def to_s
@@ -28,7 +28,7 @@ class Rock
   end
 
   def play_against_rock(rock)
-    "Two Rocks, no one wins"
+    Tie.new(rock)
   end
 
   def to_s
@@ -56,4 +56,14 @@ class Victory
     @winner.to_s + " wins to " + @loser.to_s
   end
 
+end
+
+class Tie
+  def initialize(gesture)
+    @gesture = gesture
+  end
+
+  def to_s
+    "Two " + @gesture.to_s + "s, no one wins"
+  end
 end
