@@ -9,7 +9,7 @@ class TestRockPaperScissors < Test::Unit::TestCase
   end
 
   def test_paper_against_paper
-      result = @game.hand(@paper, Paper.new)
+      result = @game.hand(@paper, @paper)
       assert_equal(result.to_s, "Two Papers, no one wins")
   end
 
