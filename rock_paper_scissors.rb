@@ -17,3 +17,9 @@ class Rock
     "Paper wins to Rock"
   end
 end
+
+class Scissors
+  def play_against_paper
+    "Scissors wins to Paper"
+  end
+end
