@@ -31,6 +31,10 @@ class Rock
     Victory.new(paper, self)
   end
 
+  def play_against_scissors(scissors)
+    Victory.new(self, scissors)
+  end
+
   def play_against_rock(rock)
     Tie.new(rock)
   end
