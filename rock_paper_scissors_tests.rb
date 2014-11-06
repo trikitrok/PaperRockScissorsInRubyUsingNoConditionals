@@ -7,4 +7,10 @@ class TestRockPaperScissors < Test::Unit::TestCase
       result = game.hand(Paper.new, Paper.new)
       assert_equal(result.to_s, "Two Papers, no one wins")
   end
+
+  def test_paper_against_rock
+    sut = Game.new
+    result = sut.hand(Paper.new, Rock.new)
+    assert_equal(result.to_s, "Paper wins")
+  end
 end
