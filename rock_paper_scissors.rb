@@ -14,6 +14,6 @@ end
 
 class Rock
   def play_against_paper
-    "Paper wins"
+    "Paper wins to Rock"
   end
 end
