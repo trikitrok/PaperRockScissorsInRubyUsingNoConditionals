@@ -10,16 +10,40 @@ class Paper
   def play_against_paper
     "Two Papers, no one wins"
   end
+
+  def to_s
+    "Paper"
+  end 
 end
 
 class Rock
   def play_against_paper
-    "Paper wins to Rock"
+    Victory.new(Paper.new, self)
   end
+
+  def to_s
+    "Rock"
+  end 
 end
 
 class Scissors
   def play_against_paper
-    "Scissors wins to Paper"
+    Victory.new(self, Paper.new)
   end
+
+  def to_s
+    "Scissors"
+  end 
+end
+
+class Victory
+  def initialize(winner, loser)
+    @winner = winner
+    @loser = loser
+  end
+
+  def to_s
+    @winner.to_s + " wins to " + @loser.to_s
+  end
+
 end
