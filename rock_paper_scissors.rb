@@ -5,11 +5,11 @@ class Game
 end
 
 class Gesture
-  def winning_against(other)
+  def win_against(other)
     Victory.new(self, other)
   end
 
-  def tied_with(other)
+  def tie_with(other)
     Tie.new(other)
   end
 end
@@ -20,7 +20,7 @@ class Paper < Gesture
   end
 
   def play_against_paper(paper)
-    tied_with(paper)
+    tie_with(paper)
   end
 
   def play_against_scissors(scissors)
@@ -28,7 +28,7 @@ class Paper < Gesture
   end
 
   def play_against_rock(rock)
-    winning_against(rock)
+    win_against(rock)
   end
 
   def to_s
@@ -50,11 +50,11 @@ class Rock < Gesture
   end
 
   def play_against_scissors(scissors)
-    winning_against(scissors)
+    win_against(scissors)
   end
 
   def play_against_rock(rock)
-    tied_with(rock)
+    tie_with(rock)
   end
 
   def to_s
@@ -72,11 +72,11 @@ class Scissors < Gesture
   end
 
   def play_against_paper(paper)
-    winning_against(paper)
+    win_against(paper)
   end
 
   def play_against_scissors(scissors)
-    tied_with(scissors)
+    tie_with(scissors)
   end
 
   def play_against_rock(rock)
