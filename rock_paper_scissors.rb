@@ -99,7 +99,7 @@ class Victory
   end
 
   def to_s
-    @winner.to_s + " wins to " + @loser.to_s
+    @winner.to_s + " wins against " + @loser.to_s
   end
 
 end
