@@ -11,39 +11,66 @@ class TestRockPaperScissors < Test::Unit::TestCase
   end
 
   def test_paper_against_paper
-    assert_that(GameHand.with(@paper).against(@paper).results_in("Two Papers, no one wins"))              
+    assert_that(
+      GameHand.with(@paper).against(@paper)
+        .results_in("Two Papers, no one wins")
+    )              
   end
 
   def test_paper_against_rock
-    assert_that(GameHand.with(@paper).against(@rock).results_in("Paper wins against Rock"))        
+    assert_that(
+      GameHand.with(@paper).against(@rock)
+        .results_in("Paper wins against Rock")
+    )
   end
 
   def test_paper_against_scissors
-    assert_that(GameHand.with(@paper).against(@scissors).results_in("Scissors wins against Paper"))    
+    assert_that(
+      GameHand.with(@paper).against(@scissors)
+        .results_in("Scissors wins against Paper")
+    )
   end
 
   def test_scissors_against_paper
-    assert_that(GameHand.with(@scissors).against(@paper).results_in("Scissors wins against Paper"))
+    assert_that(
+      GameHand.with(@scissors).against(@paper)
+        .results_in("Scissors wins against Paper")
+    )
   end
 
   def test_scissors_against_rock
-    assert_that(GameHand.with(@scissors).against(@rock).results_in("Rock wins against Scissors"))
+    assert_that(
+      GameHand.with(@scissors).against(@rock)
+        .results_in("Rock wins against Scissors")
+    )
   end
 
   def test_scissors_against_scissors
-    assert_that(GameHand.with(@scissors).against(@scissors).results_in("Two Scissors, no one wins"))
+    assert_that(
+      GameHand.with(@scissors).against(@scissors)
+        .results_in("Two Scissors, no one wins")
+    )
   end
 
   def test_rock_against_paper
-    assert_that(GameHand.with(@rock).against(@paper).results_in("Paper wins against Rock"))
+    assert_that(
+      GameHand.with(@rock).against(@paper)
+        .results_in("Paper wins against Rock")
+    )
   end
 
   def test_rock_against_rock
-    assert_that(GameHand.with(@rock).against(@rock).results_in("Two Rocks, no one wins"))
+    assert_that(
+      GameHand.with(@rock).against(@rock)
+        .results_in("Two Rocks, no one wins")
+    )
   end
 
   def test_rock_against_scissors
-    assert_that(GameHand.with(@rock).against(@scissors).results_in("Rock wins against Scissors"))
+    assert_that(
+      GameHand.with(@rock).against(@scissors)
+        .results_in("Rock wins against Scissors")
+    )
   end
 
   def assert_that(predicate_result)
