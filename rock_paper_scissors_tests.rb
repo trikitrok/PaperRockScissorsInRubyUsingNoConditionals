@@ -11,47 +11,87 @@ class TestRockPaperScissors < Test::Unit::TestCase
   end
 
   def test_paper_against_paper
-      result = @game.hand(@paper, @paper)
-      assert_equal(result.to_s, "Two Papers, no one wins")
+    assert_equal(           
+      Hand.with(@paper).against(@paper).results_in(),
+      "Two Papers, no one wins"
+    )              
   end
 
   def test_paper_against_rock
-    result = @game.hand(@paper, @rock)
-    assert_equal(result.to_s, "Paper wins to Rock")
+    assert_equal(           
+      Hand.with(@paper).against(@rock).results_in(),
+      "Paper wins to Rock"
+    )        
   end
 
   def test_paper_against_scissors
-    result = @game.hand(@paper, @scissors)
-    assert_equal(result.to_s, "Scissors wins to Paper")
+    assert_equal(           
+      Hand.with(@paper).against(@scissors).results_in(),
+      "Scissors wins to Paper"
+    )    
   end
 
   def test_scissors_against_paper
-    result = @game.hand(@scissors, @paper)
-    assert_equal(result.to_s, "Scissors wins to Paper")
+    assert_equal(           
+      Hand.with(@scissors).against(@paper).results_in(),
+      "Scissors wins to Paper"
+    )
   end
 
   def test_scissors_against_rock
-    result = @game.hand(@scissors, @rock)
-    assert_equal(result.to_s, "Rock wins to Scissors")
+    assert_equal(           
+      Hand.with(@scissors).against(@rock).results_in(),
+      "Rock wins to Scissors"
+    )
   end
 
   def test_scissors_against_scissors
-    result = @game.hand(@scissors, @scissors)
-    assert_equal(result.to_s, "Two Scissors, no one wins")
+    assert_equal(
+      Hand.with(@scissors).against(@scissors).results_in(),
+      "Two Scissors, no one wins"
+    )
   end
 
   def test_rock_against_paper
-    result = @game.hand(@rock, @paper)
-    assert_equal(result.to_s, "Paper wins to Rock")
+    assert_equal(
+      Hand.with(@rock).against(@paper).results_in(),
+      "Paper wins to Rock"
+    )
   end
 
   def test_rock_against_rock
-    result = @game.hand(@rock, @rock)
-    assert_equal(result.to_s, "Two Rocks, no one wins")
+    assert_equal(
+      Hand.with(@rock).against(@rock).results_in(),
+      "Two Rocks, no one wins"
+    )
   end
 
   def test_rock_against_scissors
-    result = @game.hand(@rock, @scissors)
-    assert_equal(result.to_s, "Rock wins to Scissors")
+    assert_equal(
+      Hand.with(@rock).against(@scissors).results_in(),
+      "Rock wins to Scissors"
+    )
+  end
+end
+
+class Hand
+  def initialize(gesture)
+    @gesture1 = gesture
+  end
+
+  class << self 
+    def with(gesture)
+      new(gesture)
+    end
+ end
+
+  def against(gesture)
+    @gesture2 = gesture
+    self
+  end
+
+  def results_in
+    result = Game.new().hand(@gesture1, @gesture2)
+    result.to_s
   end
 end
