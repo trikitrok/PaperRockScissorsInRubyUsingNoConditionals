@@ -11,39 +11,39 @@ class TestRockPaperScissors < Test::Unit::TestCase
   end
 
   def test_paper_against_paper
-    assert_that(Hand.with(@paper).against(@paper).results_in("Two Papers, no one wins"))              
+    assert_that(GameHand.with(@paper).against(@paper).results_in("Two Papers, no one wins"))              
   end
 
   def test_paper_against_rock
-    assert_that(Hand.with(@paper).against(@rock).results_in("Paper wins to Rock"))        
+    assert_that(GameHand.with(@paper).against(@rock).results_in("Paper wins to Rock"))        
   end
 
   def test_paper_against_scissors
-    assert_that(Hand.with(@paper).against(@scissors).results_in("Scissors wins to Paper"))    
+    assert_that(GameHand.with(@paper).against(@scissors).results_in("Scissors wins to Paper"))    
   end
 
   def test_scissors_against_paper
-    assert_that(Hand.with(@scissors).against(@paper).results_in("Scissors wins to Paper"))
+    assert_that(GameHand.with(@scissors).against(@paper).results_in("Scissors wins to Paper"))
   end
 
   def test_scissors_against_rock
-    assert_that(Hand.with(@scissors).against(@rock).results_in("Rock wins to Scissors"))
+    assert_that(GameHand.with(@scissors).against(@rock).results_in("Rock wins to Scissors"))
   end
 
   def test_scissors_against_scissors
-    assert_that(Hand.with(@scissors).against(@scissors).results_in("Two Scissors, no one wins"))
+    assert_that(GameHand.with(@scissors).against(@scissors).results_in("Two Scissors, no one wins"))
   end
 
   def test_rock_against_paper
-    assert_that(Hand.with(@rock).against(@paper).results_in("Paper wins to Rock"))
+    assert_that(GameHand.with(@rock).against(@paper).results_in("Paper wins to Rock"))
   end
 
   def test_rock_against_rock
-    assert_that(Hand.with(@rock).against(@rock).results_in("Two Rocks, no one wins"))
+    assert_that(GameHand.with(@rock).against(@rock).results_in("Two Rocks, no one wins"))
   end
 
   def test_rock_against_scissors
-    assert_that(Hand.with(@rock).against(@scissors).results_in("Rock wins to Scissors"))
+    assert_that(GameHand.with(@rock).against(@scissors).results_in("Rock wins to Scissors"))
   end
 
   def assert_that(predicate_result)
@@ -51,7 +51,7 @@ class TestRockPaperScissors < Test::Unit::TestCase
   end
 end
 
-class Hand
+class GameHand
   def initialize(gesture)
     @gesture1 = gesture
   end
@@ -60,7 +60,7 @@ class Hand
     def with(gesture)
       new(gesture)
     end
- end
+  end
 
   def against(gesture)
     @gesture2 = gesture
